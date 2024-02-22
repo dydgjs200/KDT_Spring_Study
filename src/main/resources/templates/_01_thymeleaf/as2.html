@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 th:text="${map.getMap()}"></h1>
+
+<table class="tb_col" border="1">
+    <tr>
+        <th>이름</th>
+        <th>나이</th>
+    </tr>
+    <tr th:each="entry : ${map.getMap().entrySet()}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+</table>
+</body>
+</html>

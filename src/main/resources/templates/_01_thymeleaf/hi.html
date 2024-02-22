@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Thymeleaf 템플릿 소개-->
+<!--p 태그에서, 태그 안에 텍스트를 적더라도 나오지 않아요..-->
+<p th:text="안녕하세요. + ${msg}"></p>
+<p>텍스트 표현</p>
+<p th:text="hihihihihi"></p>
+
+<h3>uText example</h3>
+<p th:utext="${uText}"></p>
+
+<h3>value example</h3>
+<p>HTML 요소의 value 속성값 지정 시 사용</p>
+<input th:value="${value}"></input>
+
+<h3>with 예시</h3>
+<p>변수 값 지정해서 사용할 때 사용함니다</p>
+<p>서버에서 전달받은 withValue 속성 값을 temp라는 변수에 저장해서 사용</p>
+<div th:with="temp=${withValue}" th:text="${temp}"></div>
+
+<h3>th:href 예시</h3>
+<p>파라미터 값을 model으로 주입 받은 변수나 자체 변수로 넣어줄 수 있다.</p>
+<a th:href="@{/hi}">Link1</a>
+<a th:href="@{/{id}(id=${link})}"></a>
+<a th:href="@{https://www.google.com}">Google</a>
+
+<h3>th:src 예시</h3>
+<img th:src="${imgSrc}" width="200px" alt="alzip">
+
+<h3>th:switch 예시</h3>
+<div th:switch="${userRole}">
+    <p th:case="admin">Hello admin</p>
+    <p th:case="user">Hello user</p>
+    <p th:case="*">Hello unkown</p>
+</div>
+
+<h3>th:if, th:unless 예시</h3>
+<!--unless는 if 없이도 실행 가능, 조건 false일 시 실행-->
+<!--if, unless는 if else로 사용가능-->
+<div>
+    <p th:if="${idAdmin}">Welcome admin</p>
+    <p th:unless="${idAdmin}">Welcome user</p>
+</div>
+
+<h3>th:each 예시</h3>
+<ul>
+    <li th:each="name:${names}" th:text="${name}"></li>
+</ul>
+<br>
+
+<h3>클래스 예시</h3>
+<div th:text="${classHello.getAge()}"></div>
+
+</body>
+</html>

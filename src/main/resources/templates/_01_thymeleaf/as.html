@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>과제</title>
+</head>
+<body>
+<h1>과제1</h1>
+<p th:text="${age.getAge()}"></p>
+<div>
+    <p th:if="${age.getAge() >= 20}">20세 이상입니다.</p>
+    <p th:unless="${age.getAge() >= 20}">20세 미만입니다.</p>
+</div>
+</body>
+</html>
